@@ -2,7 +2,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'simple_mysql_api/version'
-
 Gem::Specification.new do |gem|
   gem.name          = "simple_mysql_api"
   gem.version       = SimpleMysqlApi::VERSION

@@ -19,7 +19,7 @@ module SimpleMysqlApi
     end
 
     def searchable_attributes
-      self.attributes.delete_if{|k,v| (self.primary_key==k.to_s) }
+      self.attributes.delete_if{|k,v| (self.primary_key==k.to_s || self.foreign_keys.include?(k.to_s)) }
     end
     
     def search_conditions(attributes,params,properties,t_type)
