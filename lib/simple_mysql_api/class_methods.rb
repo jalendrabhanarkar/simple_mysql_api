@@ -63,7 +63,7 @@ module SimpleMysqlApi
       # price="<100"
       # price=">100"
       def range_search(attr,params,act_relation,t_type)
-        attr_opp =  /[-,<,>]/.match(params[attr]).to_s + /[=]/.match(s).to_s
+        attr_opp =  /[-,<,>]/.match(params[attr]).to_s + /[=]/.match(params[attr]).to_s
         table_name = "#{t_type.constantize.table_name}" 
         case(attr_opp)
           when "-"
