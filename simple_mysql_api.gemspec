@@ -5,11 +5,13 @@ require 'simple_mysql_api/version'
 Gem::Specification.new do |gem|
   gem.name          = "simple_mysql_api"
   gem.version       = SimpleMysqlApi::VERSION
-  gem.authors       = ["jalendrabhanarkar"]
-  gem.email         = ["jalendra@sapnasolutions.com"]
-  gem.description   = "Used for basic api operations,like searching etc."
-  gem.summary       = "First gem to check the functionality."
-  gem.homepage      = ""
+  gem.authors       = ["Jalendra Bhanarkar"]
+  gem.email         = ["jbmyid@gmail.com"]
+  gem.description   = "Search the records by attributes of the same table or associated tables. Search: Ex.  User.search({search_params: {name: \"Alex\", city: \"New\"}, belongs_to: false, has_many: true}) will return the User active relation with conditioning name=Alex and city=new"
+  gem.summary       = "Search the records by attributes of the same table or associated tables."
+  gem.homepage      = "http://jbmyid.wordpress.com"
+  gem.add_dependency('rails', '>= 3.2')
+  # gem.add_dependency('ActiveRecord','>= 3.2')
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
