@@ -55,8 +55,8 @@ module SimpleMysqlApi
       
       # for the text search if it contains the string
       def text_search(attr,params,act_relation,t_type)
-        obj = "%#{params[attr[:param_name]]}%"
-        act_relation.where(["LOWER(#{t_type.constantize.table_name}.#{attr[:attr]}) like LOWER(?)",obj])
+        obj = "%#{params[attr[:param_name]].downcase}%"
+        act_relation.where(["LOWER(#{t_type.constantize.table_name}.#{attr[:attr]}) like ?",obj])
       end
 
       # for the integer, float attributes 
@@ -73,7 +73,7 @@ module SimpleMysqlApi
            act_relation = act_relation.where(["CAST(#{table_name}.#{attr[:attr]} AS DECIMAL) >= ? and CAST(#{table_name}.#{attr[:attr]} AS DECIMAL) <= ?",attr_val[0],attr_val[1]]) if attr_val
           when "<",">","<=",">="
            attr_val = params[attr[:param_name]].split(attr_opp)[1].to_f
-           act_relation = act_relation.where([" CAST(#{table_name}.#{attr[:attr]} AS DECIMAL) #{attr_opp} ?",attr_val]) if attr_val
+           act_relation = act_relation.where(["CAST(#{table_name}.#{attr[:attr]} AS DECIMAL) #{attr_opp} ?",attr_val]) if attr_val
           else
            attr_val = params[attr[:param_name]].to_f
            act_relation = act_relation.where(["CAST(#{table_name}.#{attr[:attr]} AS DECIMAL) = ?",attr_val]) if attr_val
