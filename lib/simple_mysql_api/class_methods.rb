@@ -122,7 +122,7 @@ module SimpleMysqlApi
         self.reflect_on_all_associations.inject([]) do |r, e|
           r << e.foreign_key
           r
-        end
+        end.uniq
       end
 
       # Main method:
