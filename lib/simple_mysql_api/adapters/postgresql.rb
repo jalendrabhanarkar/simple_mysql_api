@@ -2,11 +2,15 @@ module SimpleMysqlApi
   
   class PostgreSQLAdapter
     def cast_to_string(clause)
-      clause
+      "CAST(#{clause} AS CHAR)"
     end
     
     def cast_as_decimal(clause)
-      clause
+      "CAST(#{clause} AS DECIMAL)"
+    end
+    
+    def case_insensitive_like(clause)
+      "#{clause} ilike"
     end
   end
 end
