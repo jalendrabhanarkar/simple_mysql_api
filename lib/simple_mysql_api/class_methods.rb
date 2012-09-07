@@ -130,7 +130,7 @@ module SimpleMysqlApi
       # You have params= {name: "Joh", city: "New"}
       # set has_many, belongs_to to true if you want to search for associated models
       # Search: User.search({search_params: params, has_many: true, belongs_to: false})
-      def search(options={})
+      def mysql_search(options={})
         params = options[:search_params]
         search_params = options[:custom_params] || nil
         act_relation = self
