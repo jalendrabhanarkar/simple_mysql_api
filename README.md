@@ -34,12 +34,13 @@ Search in associated models<br/>
  3. Search by ranges(Integer and decimals):
     Ex. If Item has price field then search for price by range
     Item.mysql_search({search_params: {price: "1000-2500"}}) # for items having price between 1000 to 2500
-    Item.mysql_search({search_params: {price: "<2500"}}) # for items having price less than 2500
+    Item.mysql_search({search_params: {price: "&lt;2500"}}) # for items having price less than 2500
+    
     <b>Operators:</b> &lt;, &gt;, &lt;= , &gt;=, - #for integer and floating attributes   
  4. Search by ranges(Datetime):<br/>
      Ex. If Item has posted_at field then search for posted_at by range<br/>
      Item.mysql_search({search_params: {posted_at: "2012-09-08 15:28:21 +0530..2012-09-10 15:27:27 +0530"}}) # for items having posted_at date between the given dates<br/>
-     Item.mysql_search({search_params: {posted_at: "<2012-09-08 15:28:21 +0530"}}) # for items having posted_at date earlier than given date<br/>
+     Item.mysql_search({search_params: {posted_at: "&lt;2012-09-08 15:28:21 +0530"}}) # for items having posted_at date earlier than given date<br/>
      
      <b>Operators:</b> &lt;, &gt;, &lt;= , &gt;=, ..(for range) #for datetime attributes<br/>
  3. It joins the tables automatically (Please specify primary & foreign keys if you are using custom keys)<br/>
