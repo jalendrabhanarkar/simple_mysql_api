@@ -26,12 +26,10 @@ Simple search
     
 Search in associated models
  1. If model has has_many relations with other models then
-    Ex. User has_many cities =>
-    
+    Ex. User has_many cities =><br/>
     User.mysql_search({search_params: {name: "alex", city_name_: "new"}, has_many: true})
  2. If model has belongs_to relations with other model then
-    Ex. Project belongs_to users =>
-    
+    Ex. Project belongs_to users =><br/>
     Project.mysql_search({search_params: {name: "my_p", user_name_: "ale"}, belongs_to: true})
  
  3. It joins the tables automatically (Please specify primary & foreign keys if you are using custom keys)
