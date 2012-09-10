@@ -20,17 +20,21 @@ Or install it yourself as:
 
 Method name: mysql_search(options={})
 options:
- 1. Simple search
+Simple search
     User.mysql_search({search_params: {name: "alex", address: "new"}})
     It will return Users having name matching alex:(mysql like "%alex%") and address matching "new"
- 
- 2. If model has has_many relations with other models then
-    Ex. User has_many cities
+    
+Search in associated models
+ 1. If model has has_many relations with other models then
+    Ex. User has_many cities =>
+    
     User.mysql_search({search_params: {name: "alex", city_name_: "new"}, has_many: true})
- 3. If model has belongs_to relations with other model then
-    Ex. Project belongs_to users
+ 2. If model has belongs_to relations with other model then
+    Ex. Project belongs_to users =>
+    
     Project.mysql_search({search_params: {name: "my_p", user_name_: "ale"}, belongs_to: true})
  
+ 3. It joins the tables automatically (Please specify primary & foreign keys if you are using custom keys)
  
 
 ## Contributing
