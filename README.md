@@ -21,7 +21,7 @@ Or install it yourself as:
 Method name: mysql_search(options={})
 options:
 Simple search
-    User.<b>mysql_search<b>({search_params: {name: "alex", address: "new"}})
+    User.<b>mysql_search</b>({search_params: {name: "alex", address: "new"}})
     It will return Users having name matching alex:(mysql like "%alex%") and address matching "new"
     
 Search in associated models
